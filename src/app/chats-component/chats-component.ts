@@ -4,10 +4,11 @@ import { Router, RouterModule } from '@angular/router';
 import { ChatService } from '../services/chat';
 import { AddNewContact } from '../add-new-contact/add-new-contact';
 import { SearchBarComponent } from '../search-bar/search-bar';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-chats-component',
-  imports: [CommonModule, RouterModule, AddNewContact, SearchBarComponent],
+  imports: [CommonModule, RouterModule, AddNewContact, SearchBarComponent, FormsModule],
   templateUrl: './chats-component.html',
   styleUrl: './chats-component.css',
   standalone: true,
@@ -56,5 +57,15 @@ export class ChatsComponent {
 
   onSearchChange(value: string) {
     this.searchText.set(value.toLowerCase());
+  }
+
+  messageText = '';
+
+  sendMessage() {
+    const chatId = this.selectedChatId();
+    if (!chatId || !this.messageText.trim()) return;
+
+    this.chatService.sendMessage(chatId, this.messageText);
+    this.messageText = '';
   }
 }

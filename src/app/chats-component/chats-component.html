@@ -33,13 +33,32 @@
   <section class="messages-panel">
     <ng-container *ngIf="selectedChat(); else emptyChat">
       <header class="messages-header">
-        {{ selectedChat()?.name }}
+        <img
+          class="header-avatar"
+          [src]="selectedChat()?.image || 'assets/foto1.jpeg'"
+          alt="Avatar"
+        />
+
+        <span class="header-name">
+          {{ selectedChat()?.name }}
+        </span>
       </header>
 
       <div class="messages-body">
         <div *ngFor="let msg of selectedChat()?.messages" class="message" [class.me]="msg.fromMe">
           {{ msg.text }}
         </div>
+      </div>
+      <div class="message-input-bar">
+        <p class="text">Mensaje:</p>
+        <input
+          type="text"
+          placeholder="Escribí un mensaje..."
+          [(ngModel)]="messageText"
+          (keydown.enter)="sendMessage()"
+        />
+
+        <button (click)="sendMessage()">Enviar</button>
       </div>
     </ng-container>
 
