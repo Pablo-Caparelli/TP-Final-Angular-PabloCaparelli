@@ -6,7 +6,7 @@
     <app-search-bar (searchChange)="onSearchChange($event)"></app-search-bar>
 
     <ul class="contacts-list">
-      @for (chat of chatService.chats(); track chat.id) {
+      @for (chat of filteredChats(); track chat.id) {
       <li
         class="contact-item"
         (click)="open(chat.id)"

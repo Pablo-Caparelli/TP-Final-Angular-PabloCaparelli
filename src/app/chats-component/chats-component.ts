@@ -32,7 +32,7 @@ export class ChatsComponent {
   }
 
   filteredChats = computed(() => {
-    const text = this.searchText.trim();
+    const text = this.searchText().trim();
     return this.chatService.chats().filter((chat) => chat.name.toLowerCase().includes(text));
   });
 
@@ -51,9 +51,10 @@ export class ChatsComponent {
     }
   }
 
-  searchText = '';
+  //searchText = '';
+  searchText = signal('');
 
   onSearchChange(value: string) {
-    this.searchText = value.toLowerCase();
+    this.searchText.set(value.toLowerCase());
   }
 }
