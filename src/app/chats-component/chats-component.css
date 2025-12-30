@@ -1,0 +1,96 @@
+.chat-layout {
+  display: flex;
+  height: 100vh;
+}
+
+/* 🧭 CONTACTOS */
+.contacts-panel {
+  width: 30%;
+  background: #f4f6f8;
+  border-right: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 💬 MENSAJES */
+.messages-panel {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* -------- CONTACTOS -------- */
+
+.panel-title {
+  text-align: center;
+  padding: 15px;
+  margin: 0;
+  background: #e9f3ff;
+  border-bottom: 1px solid #cbd9ee;
+}
+
+.contacts-list {
+  flex: 1;
+  overflow-y: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.contact-item:hover {
+  background: #e3efff;
+}
+
+.contact-item.active {
+  background: #cfe3ff;
+}
+
+/* Imagen */
+.contact-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Info */
+.contact-info {
+  flex: 1;
+  overflow: hidden;
+}
+
+.contact-name {
+  font-weight: 600;
+}
+
+.contact-last {
+  font-size: 13px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Botón borrar */
+.contact-delete {
+  background: transparent;
+  border-radius: 10%;
+  color: #ff4d4d;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.messages-header {
+  padding: 15px;
+  background: #e9f3ff;
+  border-bottom: 1px solid #cbd9ee;
+  font-weight: bold;
+}

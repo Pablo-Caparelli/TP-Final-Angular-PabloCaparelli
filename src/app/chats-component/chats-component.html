@@ -1,0 +1,50 @@
+<div class="chat-layout">
+  <!-- 🧭 PANEL IZQUIERDO -->
+  <aside class="contacts-panel">
+    <h2 class="panel-title">Lista de Contactos</h2>
+
+    <app-search-bar (searchChange)="onSearchChange($event)"></app-search-bar>
+
+    <ul class="contacts-list">
+      @for (chat of chatService.chats(); track chat.id) {
+      <li
+        class="contact-item"
+        (click)="open(chat.id)"
+        [class.active]="chat.id === selectedChatId()"
+      >
+        <img class="contact-avatar" [src]="chat.image || 'assets/foto1.jpeg'" />
+
+        <div class="contact-info">
+          <div class="contact-name">{{ chat.name }}</div>
+          <div class="contact-last">{{ chat.lastMessage || '-' }}</div>
+        </div>
+
+        <button class="contact-delete" (click)="$event.stopPropagation(); deleteChat(chat.id)">
+          Eliminar contacto
+        </button>
+      </li>
+      }
+    </ul>
+
+    <app-add-new-contact (addNewContact)="onAddChat($event)"></app-add-new-contact>
+  </aside>
+
+  <!-- 💬 PANEL DERECHO -->
+  <section class="messages-panel">
+    <ng-container *ngIf="selectedChat(); else emptyChat">
+      <header class="messages-header">
+        {{ selectedChat()?.name }}
+      </header>
+
+      <div class="messages-body">
+        <div *ngFor="let msg of selectedChat()?.messages" class="message" [class.me]="msg.fromMe">
+          {{ msg.text }}
+        </div>
+      </div>
+    </ng-container>
+
+    <ng-template #emptyChat>
+      <div class="no-chat">Seleccioná un chat</div>
+    </ng-template>
+  </section>
+</div>
