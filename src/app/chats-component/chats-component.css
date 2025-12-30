@@ -134,3 +134,24 @@
   font-weight: bold;
   font-size: 1.2rem;
 }
+
+.messages-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  font-weight: 600;
+}
+
+.header-avatar {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.header-name {
+  font-size: 20px;
+}
