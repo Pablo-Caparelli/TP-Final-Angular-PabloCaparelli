@@ -46,3 +46,10 @@
 .delete-message-btn:hover {
   color: red;
 }
+
+.messages-container span {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}

@@ -1,6 +1,6 @@
 <div class="messages-container">
   @if (messages.length === 0) {
-  <span>Aún no hay mensajes</span>
+  <span>Aún no hay mensajes. Inicia la conversación.</span>
   } @else { @for (message of messages; track message.id) {
 
   <div
@@ -9,7 +9,7 @@
     [class.message-other]="!message.fromMe"
   >
     <div class="message-header">
-      <strong>{{ message.fromMe ? 'Yo' : 'Contacto' }}</strong>
+      <strong>{{ message.fromMe ? 'Yo' : 'Lucía' }}</strong>
 
       <button class="delete-message-btn" (click)="onDelete(message.id)">
         <fa-icon [icon]="faTrashCan"></fa-icon>
@@ -19,7 +19,7 @@
     <p>{{ message.text }}</p>
 
     <div class="message-footer">
-      <span>{{ message.date | date : 'HH:mm' }}</span>
+      <span>{{ message.date | date : 'dd/MM/yyyy HH:mm' }}</span>
     </div>
   </div>
 

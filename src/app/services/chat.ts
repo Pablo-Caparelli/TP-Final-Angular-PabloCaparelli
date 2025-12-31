@@ -39,7 +39,7 @@ export class ChatService {
     return [
       {
         id: '1',
-        name: 'Lucia',
+        name: 'Lucía',
         image: 'assets/foto1.jpeg',
         lastMessage: 'Nos vemos mañana',
         messages: [
@@ -47,13 +47,13 @@ export class ChatService {
             id: '1',
             text: 'Hola!',
             fromMe: false,
-            date: now,
+            date: new Date().toISOString(),
           },
           {
             id: '2',
             text: 'Que tal?',
             fromMe: true,
-            date: now,
+            date: new Date().toISOString(),
           },
         ],
       },
