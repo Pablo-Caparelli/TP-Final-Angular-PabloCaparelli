@@ -18,7 +18,7 @@
 .form-group {
   display: flex;
   flex-direction: column;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .form-group label {
@@ -27,6 +27,8 @@
 }
 
 .form-group input {
+  width: 100%;
+  box-sizing: border-box;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 8px;

@@ -16,7 +16,7 @@
 
         <div class="contact-info">
           <div class="contact-name">{{ chat.name }}</div>
-          <div class="contact-last">{{ chat.lastMessage || '-' }}</div>
+          <!-- <div class="contact-last">{{ chat.lastMessage || '-' }}</div> -->
         </div>
 
         <button class="contact-delete" (click)="$event.stopPropagation(); deleteChat(chat.id)">

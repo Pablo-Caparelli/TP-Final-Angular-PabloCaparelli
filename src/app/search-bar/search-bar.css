@@ -2,12 +2,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 20px 0;
+  margin: 25px 0;
 }
 
 .search-input {
   border-radius: 10px;
-  width: 91%;
+  width: 95%;
   padding: 10px;
   background-color: rgb(202, 248, 233);
 }
