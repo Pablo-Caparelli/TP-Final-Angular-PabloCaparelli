@@ -1,4 +1,4 @@
-<div class="chat-layout">
+<div class="chat-layout" [class.mobile-chat-open]="selectedChatId()">
   <!-- 🧭 PANEL IZQUIERDO -->
   <aside class="contacts-panel">
     <h2 class="panel-title">Lista de Contactos</h2>
@@ -33,6 +33,7 @@
   <section class="messages-panel">
     <ng-container *ngIf="selectedChat(); else emptyChat">
       <header class="messages-header">
+        <button class="back-btn" (click)="selectedChatId.set(null)">⬅ Volver a Contactos</button>
         <img
           class="header-avatar"
           [src]="selectedChat()?.image || 'assets/foto1.jpeg'"
