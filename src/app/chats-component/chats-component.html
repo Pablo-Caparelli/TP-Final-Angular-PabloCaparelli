@@ -44,11 +44,18 @@
         </span>
       </header>
 
-      <div class="messages-body">
+      <!-- <div class="messages-body">
         <div *ngFor="let msg of selectedChat()?.messages" class="message" [class.me]="msg.fromMe">
           {{ msg.text }}
         </div>
+      </div> -->
+      <div class="messages-body">
+        <app-messages-list
+          [messages]="selectedChat()?.messages ?? []"
+          (deleteMessage)="handleDelete($event)"
+        ></app-messages-list>
       </div>
+
       <div class="message-input-bar">
         <p class="text">Mensaje:</p>
         <input

@@ -104,7 +104,14 @@
 .messages-body {
   flex: 1;
   overflow-y: auto;
-  padding: 10px;
+  display: block;
+}
+
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 8px;
 }
 
 .message-input-bar {
@@ -154,4 +161,12 @@
 
 .header-name {
   font-size: 20px;
+}
+
+.message {
+  max-width: 70%;
+  padding: 10px 14px;
+  border-radius: 18px;
+  word-wrap: break-word;
+  display: inline-block;
 }

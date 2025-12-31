@@ -146,4 +146,23 @@ export class ChatService {
     });
     return new_message;
   }
+
+  deleteMessage(chatId: string, messageId: string) {
+    this._chats.update((chats) => {
+      const updated = chats.map((chat) => {
+        if (chat.id !== chatId) return chat;
+
+        const newMessages = chat.messages.filter((m) => m.id !== messageId);
+
+        return {
+          ...chat,
+          messages: newMessages,
+          lastMessage: newMessages.at(-1)?.text ?? '',
+        };
+      });
+
+      this.saveChats(updated);
+      return updated;
+    });
+  }
 }

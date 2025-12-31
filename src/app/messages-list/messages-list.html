@@ -1,0 +1,29 @@
+<div class="messages-container">
+  @if (messages.length === 0) {
+  <span>Aún no hay mensajes</span>
+  } @else { @for (message of messages; track message.id) {
+
+  <div
+    class="message"
+    [class.message-mine]="message.fromMe"
+    [class.message-other]="!message.fromMe"
+  >
+    <div class="message-header">
+      <strong>{{ message.fromMe ? 'Yo' : 'Contacto' }}</strong>
+
+      <button class="delete-message-btn" (click)="onDelete(message.id)">
+        <fa-icon [icon]="faTrashCan"></fa-icon>
+      </button>
+    </div>
+
+    <p>{{ message.text }}</p>
+
+    <div class="message-footer">
+      <span>{{ message.date | date : 'HH:mm' }}</span>
+    </div>
+  </div>
+
+  } }
+
+  <hr />
+</div>

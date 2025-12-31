@@ -1,0 +1,47 @@
+.messages-container {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  gap: 8px;
+}
+
+.message {
+  max-width: 65%;
+  padding: 10px 14px;
+  border-radius: 16px;
+  word-wrap: break-word;
+}
+
+.message-mine {
+  align-self: flex-end;
+  background: #0084ff;
+  color: white;
+}
+
+.message-other {
+  align-self: flex-start;
+  background: #e4e6eb;
+  color: black;
+}
+
+.message-header {
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
+.message-footer {
+  text-align: right;
+  font-size: 10px;
+  opacity: 0.6;
+}
+
+.delete-message-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #666;
+}
+
+.delete-message-btn:hover {
+  color: red;
+}

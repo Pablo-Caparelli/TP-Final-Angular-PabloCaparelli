@@ -5,10 +5,18 @@ import { ChatService } from '../services/chat';
 import { AddNewContact } from '../add-new-contact/add-new-contact';
 import { SearchBarComponent } from '../search-bar/search-bar';
 import { FormsModule } from '@angular/forms';
+import { MessagesListComponent } from '../messages-list/messages-list';
 
 @Component({
   selector: 'app-chats-component',
-  imports: [CommonModule, RouterModule, AddNewContact, SearchBarComponent, FormsModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    AddNewContact,
+    SearchBarComponent,
+    FormsModule,
+    MessagesListComponent,
+  ],
   templateUrl: './chats-component.html',
   styleUrl: './chats-component.css',
   standalone: true,
@@ -67,5 +75,12 @@ export class ChatsComponent {
 
     this.chatService.sendMessage(chatId, this.messageText);
     this.messageText = '';
+  }
+
+  handleDelete(messageId: string) {
+    const chat = this.selectedChat();
+    if (!chat) return;
+
+    this.chatService.deleteMessage(chat.id, messageId);
   }
 }
