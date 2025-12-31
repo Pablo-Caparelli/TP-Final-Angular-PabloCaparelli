@@ -6,10 +6,6 @@ import { Message } from '../../interfaces/message';
   providedIn: 'root',
 })
 export class ChatService {
-  /* Mook de chats guardado */
-  /*private _chats: WritableSignal<Chat[]> = signal(this.createMook());
-  public readonly chats: Signal<Chat[]> = this._chats;
-  constructor() {}*/
   private readonly STORAGE_KEY = 'chats-data';
 
   private _chats: WritableSignal<Chat[]> = signal(this.loadChats());
@@ -81,11 +77,8 @@ export class ChatService {
       lastMessage: '',
       messages: [],
     };
+
     /* Actualizo la señal */
-    /*this._chats.update((chats_actuales) => {
-      return [...chats_actuales, new_chat];
-    });
-    return new_chat;*/
     this._chats.update((chats) => {
       const updated = [...chats, new_chat];
       this.saveChats(updated);
@@ -95,7 +88,6 @@ export class ChatService {
   }
 
   deleteChat(contactId: string) {
-    //this._chats.update((contacts) => contacts.filter((contact) => contact.id !== contactId));
     this._chats.update((chats) => {
       const updated = chats.filter((c) => c.id !== contactId);
       this.saveChats(updated);
@@ -111,23 +103,6 @@ export class ChatService {
       date: new Date().toISOString(),
     };
 
-    /*this._chats.update((chats_actuales) => {
-      return chats_actuales.map((chat) => {
-        /* Si no son el chat que quiero actualizar dejo el mensaje asi como esta */
-    /*if (chat.id !== chat_id) {
-          return chat;
-        }
-        const updated_messages = [...chat.messages, new_message];
-        return {
-          ...chat,
-          messages: updated_messages,
-          lastMessage: text,
-        };
-      });
-    });
-    return new_message;
-  }
-}*/
     this._chats.update((chats) => {
       const updated = chats.map((chat) => {
         if (chat.id !== chat_id) return chat;
