@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, Input, signal } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { ChatService } from '../services/chat';
 import { AddNewContact } from '../add-new-contact/add-new-contact';
